@@ -86,18 +86,44 @@ else
 /*Напишите программу, которая на вход
 принимает число (N), а на выходе показывает все чётные
 числа от 1 до N
-*/
+
 
 Console.Write("Введите чиcло: ");
 int number = int.Parse(Console.ReadLine()); 
-int counter = 2;
 
-while (counter <= number)
+if (2 > number && number > -2)
 {
-    if (counter % 2 == 0)
-    {
-        Console.Write(counter + ", ");
-    }
-    counter += 2;
+         Console.WriteLine($"Четных чисел в ряду 1 - {number} нет.");
 }
-Console.WriteLine();
+else 
+{
+    if (number > 0)
+    {
+        int counter = 2;
+        while (counter + 2 <= number)
+            {
+                if (counter % 2 == 0)
+                {
+                    Console.Write(counter + ", ");
+                }
+                counter += 2;
+            }
+    Console.WriteLine(counter);
+    }
+    if (number < 0)
+    {
+        int counter = -2;
+        while (counter - 2 >= number)
+        {
+            if (counter % 2 == 0)
+            {
+                Console.Write(counter + ", ");
+            }
+            counter -= 2;
+        }
+        Console.WriteLine(counter);
+    }
+    Console.WriteLine();
+}
+
+*/
