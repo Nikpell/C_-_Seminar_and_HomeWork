@@ -5,9 +5,9 @@
 */
 
 Console.Write("Введите первое чиcло: ");
-int number_1 = int.Parse(Console.ReadLine()); 
+decimal number_1 = Decimal.Parse(Console.ReadLine()); 
 Console.Write("Введите второе число: ");
-int number_2 = int.Parse(Console.ReadLine()); 
+decimal number_2 = Decimal.Parse(Console.ReadLine()); 
 
 if (number_1 > number_2)
 {
@@ -28,3 +28,5 @@ else
 // принимает число в качестве строки из терминала, преобразует его в цельночисленный формат, присваивает 
 // переменной number_1 значение введенного числа.
 // .Parse конвертирует только sting  в любой формат.
+//*/
+
