@@ -34,7 +34,7 @@ else
 
 /* Напишите программу, которая принимает на
 вход три числа и выдаёт максимальное из этих чисел.
-*/
+
 
 Console.Write("Введите первое чиcло: ");
 decimal number_1 = Decimal.Parse(Console.ReadLine()); 
@@ -62,4 +62,22 @@ else
         max_number = number_3;
     }
     Console.WriteLine($"Максимальное число из трех чисел {max_number}");
+}
+*/
+
+/* Напишите программу, которая на вход
+принимает число и выдаёт, является ли число чётным
+(делится ли оно на два без остатка).
+*/
+
+Console.Write("Введите чиcло: ");
+int number = int.Parse(Console.ReadLine()); 
+
+if (number % 2 != 0)
+{
+    Console.WriteLine("Число не четное");
+}
+else
+{
+     Console.WriteLine("Число четное");
 }
