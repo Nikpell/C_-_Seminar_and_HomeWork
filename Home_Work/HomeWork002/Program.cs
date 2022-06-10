@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 /* Задача 10: Напишите программу, которая принимает на вход трёхзначное число и на выходе
  показывает вторую цифру этого числа. 
 
@@ -63,8 +63,34 @@ string ThirdDigitInNumberArithmetic (int number)
     else return "The third Digit is absent";
 }
 
-*/
+
+
+Задача 15: Напишите программу, которая принимает на вход цифру,
+обозначающую день недели, и проверяет, является ли этот день выходным.
+
+
+string DayOfWeek (string day)
+{
+    string weekEnd = "Yes, it`s weekend";
+    string workingDay = "No, it`s working day";
+    switch (day)
+    {
+        case "6":
+            return weekEnd;
+            break;
+        case "7":
+            return weekEnd;
+            break;
+        default:
+            return workingDay;
+            break;
+    }
+
+}
+
+
+Блок проверки
 Console.Write("Input number: ");
 string a = Console.ReadLine();
-Console.WriteLine(ThreeDigitNumberHalf(a));
-//Console.WriteLine(a.Length);
+Console.WriteLine(DayOfWeek(a));
+*/
