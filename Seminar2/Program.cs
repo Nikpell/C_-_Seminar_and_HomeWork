@@ -39,8 +39,8 @@ string IsAliquote(int num1, int num2)
     if (num2 % num1 == 0) return "True";
     else return ("False, rest num is " +(num2 % num1 ))
 } 
-*/
+
 
 bool IsAliquot2(int num)
 return (num % 23 == 0 && NotFiniteNumberException % 7 == 0);
- 
+ */
