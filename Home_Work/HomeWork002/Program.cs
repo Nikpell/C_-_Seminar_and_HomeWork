@@ -24,6 +24,7 @@ int SecondOfThree (int threeDigit)
 Задача 13: Напишите программу, которая выводит третью цифру
 заданного числа или сообщает, что третьей цифры нет.
 // 1 решение через строковые методы
+Ищем третью слева цифру
 
 string ThirdDigitInNumber (string number)
 {
@@ -48,7 +49,34 @@ string ThirdDigitInNumber (string number)
         }
 }
 
+ Ищем третью справа цифру
+
+string ThirdDigitInNumber (string number)
+{
+    char nul = number[0];
+    int count = 0;
+    int lengthNumber = number.Length;
+
+    if (nul == '-')
+    {
+        count ++;
+    }
+
+    if (lengthNumber < (3 + count))
+        {
+        return "The third Digit is absent";
+        
+        }
+    else 
+        {
+            string third =  "" + number[lengthNumber - 3];
+            return third;
+        }
+}
+
+
 Second variant
+Ищем третью справа цифру
 
 string ThirdDigitInNumberArithmetic (int number)
 {
@@ -59,6 +87,36 @@ string ThirdDigitInNumberArithmetic (int number)
                 return Convert.ToString (number / 100 % 10);
             }
         else return Convert.ToString (number / 100 % 10 * -1);
+    }    
+    else return "The third Digit is absent";
+}
+
+Ищем тртью цифру справа
+
+
+string ThirdDigitInNumberArithmetic (int number)
+{
+    if (number / 100 != 0)
+    {
+        if (number > 0 ) 
+            {
+                while (number / 1000 > 0)
+                {
+                    number = number / 10;
+                }
+
+                return Convert.ToString (number % 10);
+            }
+        else 
+            {
+                number = number * -1;
+                while (number / 1000 > 0)
+                {
+                    number = number / 10; 
+                }
+                return Convert.ToString (number % 10);
+            }
+        
     }    
     else return "The third Digit is absent";
 }
@@ -90,7 +148,8 @@ string DayOfWeek (string day)
 
 
 Блок проверки
+
 Console.Write("Input number: ");
-string a = Console.ReadLine();
-Console.WriteLine(DayOfWeek(a));
+int a = int.Parse(Console.ReadLine());
+Console.WriteLine(ThirdDigitInNumberArithmetic(a));
 */
