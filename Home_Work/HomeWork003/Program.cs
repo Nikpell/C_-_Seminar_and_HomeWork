@@ -42,10 +42,44 @@ int z2 = Convert.ToInt32(xyz2[2]);
    
 return Math.Sqrt((x2- x1) * (x2- x1) +(y2- y1) * (y2- y1) + (z2- z1) * (z2- z1));
 }
-*/
+
+
+Напишите программу, которая принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N.
+
+
+string MethodForSpreadshitCube(int number)
+{
+    string result = "";
+    if (number == 0) return result + "0";
+    else if (number > 0)
+        {
+            int counter = 1;
+            while (counter <= number)
+
+            {
+                result +=((counter) * (counter) * (counter)) + " ";
+                counter++;
+            }  
+        }
+    else 
+        {
+            int counter = -1;
+            while (counter >= number)
+
+                {
+                    result += ((counter) * (counter) * (counter))+ " ";
+                    counter--;
+                }  
+        }
+    return result;    
+}
+    
+
+
 
 // Блок проверки
 Console.Write("Input something: ");
-string a = (Console.ReadLine());
-Console.WriteLine(MethodDistanseBetweenTowPoint3D(a));
-
+string b = (Console.ReadLine());
+int a = Convert.ToInt32(b);
+Console.WriteLine(MethodForSpreadshitCube(a));
+*/
