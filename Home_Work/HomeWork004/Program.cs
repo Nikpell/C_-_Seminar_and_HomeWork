@@ -22,11 +22,11 @@ string MethodPowerOfNumber(int number, int power)
 /*
 string  MethodWriteRandomArray()
 {
-    int [] array = new int[8];
-    var element = new Random();
+ //   int [] array = new int[8];               // снять комментарий, если нужен числовой массив
+//    var element = new Random();              // блок 1
     int i = 0;
     string[] result = new string[8]; 
-/*    
+/*    блок 1
     while (i < array.Length)
     {
         array[i] = element.Next(101);
@@ -35,15 +35,18 @@ string  MethodWriteRandomArray()
     }
 
     string[] result = new string[8];                  // использовать если нужен числовой массив
-    i = 0;
+    i = 0;                                            // блок 1 не используется
     while (i < array.Length)
     {
         result[i] = Convert.ToString(array[i]);
         i++;
 
     }
-*/
-/*    
+конец блока 1
+*/ 
+
+
+/*  // рабочий блок 
     while (i < result.Length)
     {
         result[i] = Convert.ToString(element.Next(101));  // строковый массив
