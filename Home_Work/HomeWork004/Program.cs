@@ -23,7 +23,7 @@ string MethodPowerOfNumber(int number, int power)
 string  MethodWriteRandomArray()
 {
  //   int [] array = new int[8];               // снять комментарий, если нужен числовой массив
-//    var element = new Random();              // блок 1
+    var element = new Random();              // блок 1
     int i = 0;
     string[] result = new string[8]; 
 /*    блок 1
