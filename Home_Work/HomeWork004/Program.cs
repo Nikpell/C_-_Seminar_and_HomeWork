@@ -1,4 +1,5 @@
-﻿// Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
+﻿using System;
+/* Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
 
 int MethodPowerOfNumber(int number, int power)
 {
@@ -10,10 +11,48 @@ int MethodPowerOfNumber(int number, int power)
     return powerOfNumber;
 }
 
-Console.Write("Input something: ");
-string b = (Console.ReadLine());
-int number = Convert.ToInt32(b);
-Console.Write("Input something: ");
-string c = (Console.ReadLine());
-int power = Convert.ToInt32(c);
-Console.WriteLine(MethodPowerOfNumber(number, power));
+
+Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
+
+1, 2, 5, 7, 19, 3, 44, 3 -> [1, 2, 5, 7, 19, 3, 44, 3]
+
+*/
+/*
+string  MethodWriteRandomArray()
+{
+    int [] array = new int[8];
+    var element = new Random();
+    int i = 0;
+    string[] result = new string[8]; 
+/*    
+    while (i < array.Length)
+    {
+        array[i] = element.Next(101);
+        i++;
+
+    }
+
+    string[] result = new string[8];                  // использовать если нужен числовой массив
+    i = 0;
+    while (i < array.Length)
+    {
+        result[i] = Convert.ToString(array[i]);
+        i++;
+
+    }
+*/
+/*    
+    while (i < result.Length)
+    {
+        result[i] = Convert.ToString(element.Next(101));  // строковый массив
+        i++;
+
+    }
+    
+    string resultNew = String.Join(", " , result);
+    return $"{resultNew} -> [{resultNew}]";              // вывод как в примере
+}
+
+
+*/
+
