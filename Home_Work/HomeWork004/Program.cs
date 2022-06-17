@@ -1,18 +1,21 @@
 ﻿
 /* Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
-
-int MethodPowerOfNumber(int number, int power)
+*/
+string MethodPowerOfNumber(int number, int power)
 {   
     int powerOfNumber = 1;
-    if (power == 0) return powerOfNumber;
-    for (int i = 1; i <= Math.Abs(power); i++)
+    if (power <= 0) return "You entered a non-natural number. Function works only for natural exponent";
+    for (int i = 1; i <= power; i++)
         {
             powerOfNumber *= number;
         }
-    return powerOfNumber;
+    return $"{powerOfNumber}";
 }
 
-*/
+int a = Convert.ToInt32(Console.ReadLine());
+int b = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine(MethodPowerOfNumber(a, b));
+
 /*
 Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
 
