@@ -1,6 +1,6 @@
 ﻿
 /* Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
-*/
+
 string MethodPowerOfNumber(int number, int power)
 {   
     int powerOfNumber = 1;
@@ -12,9 +12,6 @@ string MethodPowerOfNumber(int number, int power)
     return $"{powerOfNumber}";
 }
 
-int a = Convert.ToInt32(Console.ReadLine());
-int b = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine(MethodPowerOfNumber(a, b));
 
 /*
 Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
