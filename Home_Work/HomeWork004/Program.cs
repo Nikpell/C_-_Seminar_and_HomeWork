@@ -1,17 +1,19 @@
-﻿using System;
+﻿
 /* Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
 
 int MethodPowerOfNumber(int number, int power)
-{
+{   
     int powerOfNumber = 1;
-    for (int i = 1; i <= power; i++)
+    if (power == 0) return powerOfNumber;
+    for (int i = 1; i <= Math.Abs(power); i++)
         {
             powerOfNumber *= number;
         }
     return powerOfNumber;
 }
 
-
+*/
+/*
 Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
 
 1, 2, 5, 7, 19, 3, 44, 3 -> [1, 2, 5, 7, 19, 3, 44, 3]
