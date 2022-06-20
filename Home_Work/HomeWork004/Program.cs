@@ -18,12 +18,13 @@ string MethodPowerOfNumber(int number, int power)
 
 1, 2, 5, 7, 19, 3, 44, 3 -> [1, 2, 5, 7, 19, 3, 44, 3]
 
-*/
-/*
+
+
+
 string  MethodWriteRandomArray()
 {
  //   int [] array = new int[8];               // снять комментарий, если нужен числовой массив
-//    var element = new Random();              // блок 1
+    var element = new Random();              // блок 1
     int i = 0;
     string[] result = new string[8]; 
 /*    блок 1
@@ -44,9 +45,9 @@ string  MethodWriteRandomArray()
     }
 конец блока 1
 */ 
+/*
 
-
-/*  // рабочий блок 
+  // рабочий блок 
     while (i < result.Length)
     {
         result[i] = Convert.ToString(element.Next(101));  // строковый массив
@@ -59,5 +60,6 @@ string  MethodWriteRandomArray()
 }
 
 
-*/
+Console.WriteLine(MethodWriteRandomArray());
 
+*/
