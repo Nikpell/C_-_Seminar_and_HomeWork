@@ -19,8 +19,6 @@ string MethodPowerOfNumber(int number, int power)
 1, 2, 5, 7, 19, 3, 44, 3 -> [1, 2, 5, 7, 19, 3, 44, 3]
 
 
-
-
 string  MethodWriteRandomArray()
 {
  //   int [] array = new int[8];               // снять комментарий, если нужен числовой массив
