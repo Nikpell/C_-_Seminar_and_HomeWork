@@ -40,7 +40,7 @@ int[] CopyArray(int[] array)
     {
         newArray[i] = array[i];
     }
-    Console.WriteLine(ArrayToString(array));
+    //Console.WriteLine(ArrayToString(array));
     return newArray;
 }
 
