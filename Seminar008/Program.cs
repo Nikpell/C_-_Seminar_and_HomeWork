@@ -54,9 +54,8 @@ int [,] TransferLinesToColumns(int[,] array)
 int [] IndexOfElementWhithMinimumValue(int[,] array)
 {
     int elementWhithMinimumValue = array [0,0];
-    // int indexMinimumElementInLine = 0;
-    // int indexMinimumElementInColumn = 0;
     int [] index = new int [2];
+    
     for (int i = 0; i < array.GetLength(0); i ++)
     {
         for (int j = 0; j < array.GetLength(1); j ++)
@@ -85,6 +84,14 @@ string ArrayToString(int [] array)
         return arrayToString;
     }
 
+// замена строки и столбца с минимальным элементом на 0 
+int [,] ChangeLineAndColumnWhithMinimumElementToZero(int [,] array, int [] index)
+{
+    for (int i = 0; i < array.GetLength(1); i++) array[index[0], i] = 0;
+    for (int i = 0; i < array.GetLength(0); i++) array[i, index[1]] = 0;
+    return array;
+}
+
 
 
 Console.WriteLine("input lines: ");
@@ -108,7 +115,9 @@ Console.WriteLine();
 int [,] testArrey = IntegerRandomTwoDemensionArray(a, b, c, d);
 PrintIntegerRandomTwoDimensionalArray(testArrey);
 Console.WriteLine();
-//int [,] modifiedArrey = TransferLinesToColumns(testArrey);
-//PrintIntegerRandomTwoDimensionalArray(modifiedArrey);
-
+int [] index = IndexOfElementWhithMinimumValue(testArrey);
 Console.WriteLine(ArrayToString(IndexOfElementWhithMinimumValue(testArrey)));
+Console.WriteLine();
+int [,] modifiedArrey = ChangeLineAndColumnWhithMinimumElementToZero(testArrey, index);
+PrintIntegerRandomTwoDimensionalArray(modifiedArrey);
+
