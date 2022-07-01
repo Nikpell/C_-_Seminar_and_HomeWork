@@ -49,6 +49,44 @@ int [,] TransferLinesToColumns(int[,] array)
     return array;
 }
 
+// нахождение индекса минимального элемента
+
+int [] IndexOfElementWhithMinimumValue(int[,] array)
+{
+    int elementWhithMinimumValue = array [0,0];
+    // int indexMinimumElementInLine = 0;
+    // int indexMinimumElementInColumn = 0;
+    int [] index = new int [2];
+    for (int i = 0; i < array.GetLength(0); i ++)
+    {
+        for (int j = 0; j < array.GetLength(1); j ++)
+        {
+            if (elementWhithMinimumValue > array [i, j])
+            {
+                index [0] = i;
+                index [1] = j;
+                elementWhithMinimumValue = array [i, j];
+            } 
+        }
+    }
+    return index;
+
+}
+
+string ArrayToString(int [] array)
+    {
+        string[] arrayString = new string[array.Length];
+        string arrayToString = "";
+
+        for (int i = 0; i < array.Length; i++) arrayString[i] = Convert.ToString(array[i]);
+
+        arrayToString = string.Join("; ", arrayString);
+
+        return arrayToString;
+    }
+
+
+
 Console.WriteLine("input lines: ");
 string a1 = Console.ReadLine();
 int a = Convert.ToInt32(a1);
@@ -70,5 +108,7 @@ Console.WriteLine();
 int [,] testArrey = IntegerRandomTwoDemensionArray(a, b, c, d);
 PrintIntegerRandomTwoDimensionalArray(testArrey);
 Console.WriteLine();
-int [,] modifiedArrey = TransferLinesToColumns(testArrey);
-PrintIntegerRandomTwoDimensionalArray(modifiedArrey);
+//int [,] modifiedArrey = TransferLinesToColumns(testArrey);
+//PrintIntegerRandomTwoDimensionalArray(modifiedArrey);
+
+Console.WriteLine(ArrayToString(IndexOfElementWhithMinimumValue(testArrey)));
