@@ -121,28 +121,28 @@ qs(array, 0, 9);
 
 5 2 6 7
 */
-int [,] IntegerRandomTwoDemensionArray(int lines, int columns, int min, int max)
+int[,] IntegerRandomTwoDemensionArray(int lines, int columns, int min, int max)
 {
-    int [,] newTwoDimensionalArray = new int[lines, columns];
+    int[,] newTwoDimensionalArray = new int[lines, columns];
 
     for (int i = 0; i < lines; i++)
-        for(int j = 0; j < columns; j++) newTwoDimensionalArray[i,j] =
+        for (int j = 0; j < columns; j++) newTwoDimensionalArray[i, j] =
         new Random().Next(min, max + 1);
     return newTwoDimensionalArray;
 }
 
-int [] SummaOfLineInTwoDimensionalArray(int[,] array) //вычисляет сумму посторочно, передает в
+int[] SummaOfLineInTwoDimensionalArray(int[,] array) //вычисляет сумму посторочно, передает в
 {                                                     // одномерный массив
-    int [] newArray = new int [array.GetLength(0)];
+    int[] newArray = new int[array.GetLength(0)];
 
     for (int i = 0; i < array.GetLength(0); i++)
         for (int j = 0; j < array.GetLength(1); j++)
-            newArray[i] += (array[i,j]);
+            newArray[i] += (array[i, j]);
 
     return newArray;
 }
 
-void NumberOfStringWhithMinimumSumm(int [] array) // выдает номер строки. Остальные методы вспомога
+void NumberOfStringWhithMinimumSumm(int[] array) // выдает номер строки. Остальные методы вспомога
 {                                                 // тельные.
     int minimum = 0;
     for (int i = 1; i < array.Length; i++)
@@ -153,31 +153,84 @@ void NumberOfStringWhithMinimumSumm(int [] array) // выдает номер с�
 }
 
 
-string ArrayToString(int [] array)
-    {
-        string[] arrayString = new string[array.Length];
-        string arrayToString = "";
+string ArrayToString(int[] array)
+{
+    string[] arrayString = new string[array.Length];
+    string arrayToString = "";
 
-        for (int i = 0; i < array.Length; i++) arrayString[i] = Convert.ToString(array[i]);
+    for (int i = 0; i < array.Length; i++) arrayString[i] = Convert.ToString(array[i]);
 
-        arrayToString = string.Join("; ", arrayString);
+    arrayToString = string.Join("; ", arrayString);
 
-        return arrayToString;
-    }
+    return arrayToString;
+}
 
-void PrintIntegerRandomTwoDimensionalArray(int [,] array)
+void PrintIntegerRandomTwoDimensionalArray(int[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
-        for (int j = 0; j < array.GetLength(1); j++) 
-        Console.Write($"{array[i,j]} ");
-    Console.WriteLine();
-    } 
+        for (int j = 0; j < array.GetLength(1); j++)
+            Console.Write($"{array[i, j]} ");
+        Console.WriteLine();
+    }
 }
 
+/*Заполните спирально массив 4 на 4.
 
-int [,] testTwoDimentionalArray = IntegerRandomTwoDemensionArray(3, 6, 0, 9);
-PrintIntegerRandomTwoDimensionalArray(testTwoDimentionalArray);
-int [] newArray = SummaOfLineInTwoDimensionalArray(testTwoDimentionalArray);
-Console.WriteLine(ArrayToString(newArray));
-NumberOfStringWhithMinimumSumm(newArray);
+Например, на выходе получается вот такой массив:
+
+1 2 3 4
+
+12 13 14 5
+
+11 16 15 6
+
+10 9 8 7
+*/
+
+int[,] FillingTwoDimensionlMatrixInSpyral(int side)
+{
+    int sideX = side - 1;
+    int sideY = side - 1;
+    int number = 1;
+    int[,] array = new int[side, side];
+    int x = 0;
+    int y = 0;
+    while (sideX - x > 0 || sideY - y > 0)
+    {
+        for (int i = x; i <= sideX; i++) 
+        {
+            array[y, i] = number;
+            number++;
+        }
+        y += 1;
+        for (int i = y; i <= sideY; i++)  
+        {
+            array[i, sideX] = number;
+            number++;
+        }
+        sideX--;
+        for (int i = sideX; i >= x; i--) 
+        {
+            array[sideY, i] = number;
+            number++;
+        }
+        sideY--;
+        for (int i = sideY; i >= y; i--)
+        {
+            array[i, x] = number;
+            number++;
+        }
+        x++;
+    }
+    if (side % 2 != 0) array[side /2 , side / 2] = number;
+    return array;
+}
+
+//Console.WriteLine("input something;");
+//int a = Convert.ToInt32(Console.ReadLine());
+//int [,] testTwoDimentionalArray = IntegerRandomTwoDemensionArray(3, 6, 0, 9);
+PrintIntegerRandomTwoDimensionalArray(FillingTwoDimensionlMatrixInSpyral(6));
+//int [] newArray = SummaOfLineInTwoDimensionalArray(testTwoDimentionalArray);
+//Console.WriteLine(ArrayToString(newArray));
+//NumberOfStringWhithMinimumSumm(newArray);
