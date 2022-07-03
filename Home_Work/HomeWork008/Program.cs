@@ -16,7 +16,7 @@
 2 3 5 9
 
 2 4 4 8
-
+*/
 
 int [,] IntegerRandomTwoDemensionArray(int lines, int columns, int min, int max)
 {
@@ -38,57 +38,39 @@ void PrintIntegerRandomTwoDimensionalArray(int [,] array)
     } 
 }
 
-// сортировка одномерного массива Quick sort
-
-int[] CreateRandomArray(int size, int min, int max)
-    {
-        int[] newArray = new int[size];
-        for (int i = 0; i < size; i++)
-        {
-            newArray[i] = new Random().Next(min, max + 1);
-           // Console.Write(newArray[i] + ", ");
-        }
-            Console.WriteLine();
-            return newArray;
-    }
-
-string ArrayToString(int [] array)
-    {
-        string[] arrayString = new string[array.Length];
-        string arrayToString = "";
-
-        for (int i = 0; i < array.Length; i++) arrayString[i] = Convert.ToString(array[i]);
-
-        arrayToString = string.Join("; ", arrayString);
-
-        return arrayToString;
-    }
-
-    
-void qs(int [] array, int first, int last)
+int[,]  QuickSortAnyLine (int [,] array, int first, int last, int line)
 {
     if (first < last)
     {
-        int left = first, right = last, middle = array[(left + right) / 2];
+        int index = new Random().Next(first, last);
+        int left = first, right = last, middle = array[line,index];
         do
         {
-            while (array[left] < middle) left++;
-            while (array[right] > middle) right--;
+            while (array[line, left] < middle) left++;
+            while (array[line, right] > middle) right--;
             if (left <= right)
             {
-                int tmp = array[left];
-                array[left] =array[right];
-                array[right] = tmp;
+                (array[line, left], array[line, right]) = (array[line, right], array [line, left]);
                 left++;
                 right--;
             }
         } while (left <= right);
-        qs(array, first, right);
-        qs(array, left, last);
+        QuickSortAnyLine(array, first, right, line);
+        QuickSortAnyLine(array, left, last, line);
     }
+    return array;
 }
-        
-/*
+
+int [,] QuickSortTwoDimentionalArrayInline(int [,] array)
+{
+    int first = 0, last = array.GetLength(1) - 1;
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        QuickSortAnyLine(array, first, last, i);  
+    }
+    return array;
+}
+/*  
 Console.WriteLine("input lines: ");
 string a1 = Console.ReadLine();
 int a = Convert.ToInt32(a1);
@@ -97,18 +79,16 @@ string b1 = Console.ReadLine();
 int b = Convert.ToInt32(b1);
 Console.WriteLine("input maximum: ");
 int c = Convert.ToInt32(Console.ReadLine());
-// Console.WriteLine("input maximum number of array: ");
-// int d = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("input maximum number of array: ");
+int d = Convert.ToInt32(Console.ReadLine());
 
-
-int [] array = CreateRandomArray(10, 0, 9);
-Console.WriteLine(ArrayToString(array));
+int [,] testArray = IntegerRandomTwoDemensionArray(a, b, c, d);
+PrintIntegerRandomTwoDimensionalArray(testArray);
 Console.WriteLine();
-
-qs(array, 0, 9);
-//Console.WriteLine(ArrayToString(newarray)); 
+PrintIntegerRandomTwoDimensionalArray(QuickSortTwoDimentionalArrayInline(testArray));
 */
-/*Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, 
+/*
+Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, 
 которая будет находить строку с наименьшей суммой элементов.
 
 Например, задан массив:
@@ -121,37 +101,24 @@ qs(array, 0, 9);
 
 5 2 6 7
 */
-int[,] IntegerRandomTwoDemensionArray(int lines, int columns, int min, int max)
-{
-    int[,] newTwoDimensionalArray = new int[lines, columns];
 
-    for (int i = 0; i < lines; i++)
-        for (int j = 0; j < columns; j++) newTwoDimensionalArray[i, j] =
-        new Random().Next(min, max + 1);
-    return newTwoDimensionalArray;
-}
-
-int[] SummaOfLineInTwoDimensionalArray(int[,] array) //вычисляет сумму посторочно, передает в
-{                                                     // одномерный массив
+int[] SummaOfLineInTwoDimensionalArray(int[,] array)
+{                                                     
     int[] newArray = new int[array.GetLength(0)];
 
     for (int i = 0; i < array.GetLength(0); i++)
-        for (int j = 0; j < array.GetLength(1); j++)
-            newArray[i] += (array[i, j]);
-
+        for (int j = 0; j < array.GetLength(1); j++) newArray[i] += (array[i, j]);
+            
     return newArray;
 }
 
-void NumberOfStringWhithMinimumSumm(int[] array) // выдает номер строки. Остальные методы вспомога
-{                                                 // тельные.
+void NumberOfStringWhithMinimumSumm(int[] array)
+{                                                 
     int minimum = 0;
     for (int i = 1; i < array.Length; i++)
-    {
         if (array[minimum] > array[i]) minimum = i;
-    }
     Console.WriteLine($"Строка с наименьшей суммой элементов {minimum + 1}, индекс строки {minimum}");
 }
-
 
 string ArrayToString(int[] array)
 {
@@ -165,15 +132,6 @@ string ArrayToString(int[] array)
     return arrayToString;
 }
 
-void PrintIntegerRandomTwoDimensionalArray(int[,] array)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-            Console.Write($"{array[i, j]} ");
-        Console.WriteLine();
-    }
-}
 
 /*Заполните спирально массив 4 на 4.
 
@@ -188,14 +146,11 @@ void PrintIntegerRandomTwoDimensionalArray(int[,] array)
 10 9 8 7
 */
 
-int[,] FillingTwoDimensionlMatrixInSpyral(int side)
+int[,] FillingTwoDimensionlMatrixInSpyral(int side, int startsNumber)
 {
-    int sideX = side - 1;
-    int sideY = side - 1;
-    int number = 1;
+    int sideX = side - 1, sideY = side - 1, number = startsNumber, x = 0, y = 0;
     int[,] array = new int[side, side];
-    int x = 0;
-    int y = 0;
+
     while (sideX - x > 0 || sideY - y > 0)
     {
         for (int i = x; i <= sideX; i++) 
@@ -229,8 +184,11 @@ int[,] FillingTwoDimensionlMatrixInSpyral(int side)
 
 //Console.WriteLine("input something;");
 //int a = Convert.ToInt32(Console.ReadLine());
-//int [,] testTwoDimentionalArray = IntegerRandomTwoDemensionArray(3, 6, 0, 9);
-PrintIntegerRandomTwoDimensionalArray(FillingTwoDimensionlMatrixInSpyral(6));
+//int [,] testTwoDimentionalArray = IntegerRandomTwoDemensionArray(4, 10, 0, 9);
+//PrintIntegerRandomTwoDimensionalArray(testTwoDimentionalArray);
+//PrintIntegerRandomTwoDimensionalArray(FillingTwoDimensionlMatrixInSpyral(6,1));
 //int [] newArray = SummaOfLineInTwoDimensionalArray(testTwoDimentionalArray);
 //Console.WriteLine(ArrayToString(newArray));
 //NumberOfStringWhithMinimumSumm(newArray);
+int [,] testArray = FillingTwoDimensionlMatrixInSpyral(9,10);
+PrintIntegerRandomTwoDimensionalArray(testArray);
