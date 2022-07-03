@@ -190,5 +190,5 @@ int[,] FillingTwoDimensionlMatrixInSpyral(int side, int startsNumber)
 //int [] newArray = SummaOfLineInTwoDimensionalArray(testTwoDimentionalArray);
 //Console.WriteLine(ArrayToString(newArray));
 //NumberOfStringWhithMinimumSumm(newArray);
-int [,] testArray = FillingTwoDimensionlMatrixInSpyral(9,10);
-PrintIntegerRandomTwoDimensionalArray(testArray);
+//int [,] testArray = FillingTwoDimensionlMatrixInSpyral(9,10);
+//PrintIntegerRandomTwoDimensionalArray(testArray);
