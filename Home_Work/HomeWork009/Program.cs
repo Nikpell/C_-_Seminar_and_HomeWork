@@ -20,8 +20,8 @@ int SummaOfNumberReccursion(int start, int end)
 int AmountDigitInNumber(int number)
 {
     if (number / 10 == 0) return 1;
-    return number/number + AmountDigitInNumber(number / 10) ;  
+    return 1 + AmountDigitInNumber(number / 10) ;  
 }
 
 
-Console.WriteLine(AmountDigitInNumber(9000));
+Console.WriteLine(AmountDigitInNumber(-9));
