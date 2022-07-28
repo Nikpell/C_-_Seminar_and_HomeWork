@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="Ny03dvVYJdQSxuIG8igo" name="Страница 1">
-        <mxGraphModel dx="899" dy="410" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="701" dy="481" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -103,7 +103,7 @@
                         <mxPoint x="665" y="330" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="33" value="newArray{counter}&lt;br&gt;i = 0" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="33" value="newArray[counter]&lt;br&gt;i = 0" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="570" y="240" width="190" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="39" value="No" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
@@ -154,7 +154,7 @@
                 <mxCell id="50" value="" style="edgeStyle=none;html=1;" parent="1" source="46" target="49" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="46" value="newArray[j] = array{i}&lt;br&gt;j = j + 1" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="46" value="newArray[j] = array[i]&lt;br&gt;j = j + 1" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="560" y="680" width="210" height="90" as="geometry"/>
                 </mxCell>
                 <mxCell id="51" style="edgeStyle=none;html=1;" parent="1" source="49" edge="1">
@@ -196,6 +196,14 @@
                 <mxCell id="61" value="Finish" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="400" y="1000" width="250" height="80" as="geometry"/>
                 </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="vhiDaIeASNXhuGj4VVB-" name="Страница 2">
+        <mxGraphModel dx="1110" dy="721" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="JPEih-aGAmtNBB2tT73F-0"/>
+                <mxCell id="JPEih-aGAmtNBB2tT73F-1" parent="JPEih-aGAmtNBB2tT73F-0"/>
             </root>
         </mxGraphModel>
     </diagram>
